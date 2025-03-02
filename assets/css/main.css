@@ -1,163 +1,41 @@
-@import url("fontawesome-all.min.css");
-@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,600,600italic");
 
-/* Reset Styles */
-html, body, div, span, applet, object,
-iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
-pre, a, abbr, acronym, address, big, cite,
-code, del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var, b,
-u, i, center, dl, dt, dd, ol, ul, li, fieldset,
-form, label, legend, table, caption, tbody,
-tfoot, thead, tr, th, td, article, aside,
-canvas, details, embed, figure, figcaption,
-footer, header, hgroup, menu, nav, output, ruby,
-section, summary, time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
-	box-sizing: border-box; /* Fix layout issues */
-}
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,600');
 
-/* General Styling */
 body {
-	background: #242943;
-	color: #ffffff;
-	font-family: "Source Sans Pro", Helvetica, sans-serif;
-	font-size: 17pt;
-	font-weight: 300;
-	letter-spacing: 0.025em;
-	line-height: 1.65;
-	overflow-x: hidden; /* Prevent horizontal scroll */
+    font-family: 'Source Sans Pro', sans-serif;
+    background: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 0;
 }
 
-/* Typography */
-h1, h2, h3, h4, h5, h6 {
-	color: #ffffff;
-	font-weight: 600;
-	line-height: 1.65;
-	margin: 0 0 1em 0;
+header {
+    background: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
 }
 
-a {
-	transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
-	border-bottom: dotted 1px;
-	color: inherit;
-	text-decoration: none;
+nav ul {
+    list-style: none;
+    padding: 0;
 }
 
-a:hover {
-	border-bottom-color: transparent;
-	color: #9bf1ff !important;
+nav ul li {
+    display: inline;
+    margin: 0 10px;
 }
 
-a:active {
-	color: #53e3fb !important;
+nav ul li a {
+    color: white;
+    text-decoration: none;
 }
 
-/* Header Styling */
-#header {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	background-color: #2a2f4a;
-	box-shadow: 0 0 0.25em 0 rgba(0, 0, 0, 0.15);
-	font-weight: 600;
-	height: 3.25em;
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	z-index: 10000;
-	padding: 0 1em;
+section {
+    text-align: center;
+    padding: 50px;
 }
 
-/* Ensure header does not cover content */
-#wrapper {
-	padding-top: 3.25em;
-}
-
-/* Banner Styling */
-#banner {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	background-image: url("images/banner.jpg");
-	background-attachment: fixed;
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-	cursor: default;
-	height: 60vh;
-	max-height: 32em;
-	min-height: 22em;
-	position: relative;
-	top: 0;
-	text-align: center;
-}
-
-/* Banner Inner */
-#banner > .inner {
-	opacity: 1; /* Ensure it is visible */
-	transform: translateX(0);
-	transition: opacity 1.5s ease, transform 0.5s ease-out;
-}
-
-/* Fix Preload Issue */
-body.is-preload * {
-	animation: none !important;
-	transition: none !important;
-}
-
-body.is-preload #banner > .inner {
-	opacity: 0;
-	transform: translateY(-0.5em);
-}
-
-/* Wrapper */
-#wrapper {
-	transition: filter 0.35s ease, opacity 0.375s ease-out;
-}
-
-/* Fix menu blur issue */
-body.is-menu-visible #wrapper {
-	filter: blur(0.5em);
-}
-
-/* Responsive Styling */
-@media screen and (max-width: 768px) {
-	body {
-		font-size: 14pt;
-	}
-
-	#banner {
-		height: 50vh;
-		min-height: 18em;
-	}
-
-	#header {
-		height: 3em;
-		padding: 0 0.5em;
-	}
-
-	#wrapper {
-		padding-top: 3em;
-	}
-}
-
-@media screen and (max-width: 480px) {
-	html, body {
-		min-width: 320px;
-	}
-
-	#banner {
-		height: 40vh;
-	}
-
-	#header {
-		height: 2.75em;
-	}
+h1, h2 {
+    color: #222;
 }
