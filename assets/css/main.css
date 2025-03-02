@@ -19,7 +19,7 @@ section, summary, time, mark, audio, video {
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
-	box-sizing: border-box;
+	box-sizing: border-box; /* Fix layout issues */
 }
 
 /* General Styling */
@@ -31,14 +31,15 @@ body {
 	font-weight: 300;
 	letter-spacing: 0.025em;
 	line-height: 1.65;
-	overflow-x: hidden;
+	overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
+/* Typography */
 h1, h2, h3, h4, h5, h6 {
 	color: #ffffff;
 	font-weight: 600;
 	line-height: 1.65;
-	margin-bottom: 1em;
+	margin: 0 0 1em 0;
 }
 
 a {
@@ -63,13 +64,20 @@ a:active {
 	align-items: center;
 	justify-content: space-between;
 	background-color: #2a2f4a;
-	box-shadow: 0 0 0.25em rgba(0, 0, 0, 0.15);
+	box-shadow: 0 0 0.25em 0 rgba(0, 0, 0, 0.15);
 	font-weight: 600;
 	height: 3.25em;
 	position: fixed;
+	top: 0;
+	left: 0;
 	width: 100%;
 	z-index: 10000;
 	padding: 0 1em;
+}
+
+/* Ensure header does not cover content */
+#wrapper {
+	padding-top: 3.25em;
 }
 
 /* Banner Styling */
@@ -77,39 +85,25 @@ a:active {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	background-image: url("../../images/banner.jpg");
+	background-image: url("images/banner.jpg");
 	background-attachment: fixed;
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
+	cursor: default;
 	height: 60vh;
 	max-height: 32em;
 	min-height: 22em;
 	position: relative;
 	top: 0;
-}
-
-#banner > .inner {
-	opacity: 1;
-	transform: translateX(0);
-	transition: opacity 1.5s ease, transform 0.5s ease-out;
 	text-align: center;
 }
 
-body.is-preload #banner > .inner {
-	filter: none;
-	opacity: 1;
+/* Banner Inner */
+#banner > .inner {
+	opacity: 1; /* Ensure it is visible */
 	transform: translateX(0);
-}
-
-/* Wrapper */
-#wrapper {
-	transition: filter 0.35s ease, opacity 0.375s ease-out;
-	padding-top: 3.25em;
-}
-
-body.is-menu-visible #wrapper {
-	filter: blur(0.5em);
+	transition: opacity 1.5s ease, transform 0.5s ease-out;
 }
 
 /* Fix Preload Issue */
@@ -118,10 +112,30 @@ body.is-preload * {
 	transition: none !important;
 }
 
+body.is-preload #banner > .inner {
+	opacity: 0;
+	transform: translateY(-0.5em);
+}
+
+/* Wrapper */
+#wrapper {
+	transition: filter 0.35s ease, opacity 0.375s ease-out;
+}
+
+/* Fix menu blur issue */
+body.is-menu-visible #wrapper {
+	filter: blur(0.5em);
+}
+
 /* Responsive Styling */
 @media screen and (max-width: 768px) {
 	body {
 		font-size: 14pt;
+	}
+
+	#banner {
+		height: 50vh;
+		min-height: 18em;
 	}
 
 	#header {
@@ -129,8 +143,21 @@ body.is-preload * {
 		padding: 0 0.5em;
 	}
 
+	#wrapper {
+		padding-top: 3em;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	html, body {
+		min-width: 320px;
+	}
+
 	#banner {
-		height: 50vh;
-		min-height: 18em;
+		height: 40vh;
+	}
+
+	#header {
+		height: 2.75em;
 	}
 }
