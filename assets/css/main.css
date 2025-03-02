@@ -19,6 +19,7 @@ section, summary, time, mark, audio, video {
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
+	box-sizing: border-box;
 }
 
 /* General Styling */
@@ -30,13 +31,14 @@ body {
 	font-weight: 300;
 	letter-spacing: 0.025em;
 	line-height: 1.65;
+	overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5, h6 {
 	color: #ffffff;
 	font-weight: 600;
 	line-height: 1.65;
-	margin: 0 0 1em 0;
+	margin-bottom: 1em;
 }
 
 a {
@@ -58,43 +60,46 @@ a:active {
 /* Header Styling */
 #header {
 	display: flex;
+	align-items: center;
+	justify-content: space-between;
 	background-color: #2a2f4a;
-	box-shadow: 0 0 0.25em 0 rgba(0, 0, 0, 0.15);
-	cursor: default;
+	box-shadow: 0 0 0.25em rgba(0, 0, 0, 0.15);
 	font-weight: 600;
 	height: 3.25em;
 	position: fixed;
 	width: 100%;
 	z-index: 10000;
+	padding: 0 1em;
 }
 
 /* Banner Styling */
 #banner {
 	display: flex;
 	align-items: center;
+	justify-content: center;
 	background-image: url("../../images/banner.jpg");
 	background-attachment: fixed;
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
-	cursor: default;
 	height: 60vh;
 	max-height: 32em;
 	min-height: 22em;
 	position: relative;
-	top: -3.25em;
+	top: 0;
 }
 
 #banner > .inner {
-	opacity: 0;
-	transform: translateX(-0.5em);
+	opacity: 1;
+	transform: translateX(0);
 	transition: opacity 1.5s ease, transform 0.5s ease-out;
+	text-align: center;
 }
 
 body.is-preload #banner > .inner {
-   filter: blur(0.125em);
-   transform: translateX(-0.5em);
-   opacity: 0;
+	filter: none;
+	opacity: 1;
+	transform: translateX(0);
 }
 
 /* Wrapper */
@@ -114,8 +119,18 @@ body.is-preload * {
 }
 
 /* Responsive Styling */
-@media screen and (max-width: 480px) {
-	html, body {
-		min-width: 320px;
+@media screen and (max-width: 768px) {
+	body {
+		font-size: 14pt;
+	}
+
+	#header {
+		height: 3em;
+		padding: 0 0.5em;
+	}
+
+	#banner {
+		height: 50vh;
+		min-height: 18em;
 	}
 }
