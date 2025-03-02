@@ -92,9 +92,9 @@ a:active {
 }
 
 body.is-preload #banner > .inner {
-	filter: none !important;
-	transform: none !important;
-	opacity: 1 !important;
+   filter: blur(0.125em);
+   transform: translateX(-0.5em);
+   opacity: 0;
 }
 
 /* Wrapper */
