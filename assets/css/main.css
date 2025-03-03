@@ -59,7 +59,6 @@ h2 {
     margin-bottom: 20px;
 }
 
-/* Image Gallery */
 .image-gallery {
     display: flex;
     justify-content: center;
@@ -68,14 +67,11 @@ h2 {
     margin-top: 20px;
 }
 
-/* Gallery Images */
 .image-gallery img {
-    width: 100%;
-    max-width: 400px;
-    height: auto;
+    width: 60%;
+    max-width: 600px;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .image-gallery img:hover {
